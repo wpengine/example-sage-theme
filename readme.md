@@ -27,7 +27,7 @@ To produce beautiful themes like
 ```
 
 ## To get started
-You can either clone and modify this repo, [update the github action](https://github.com/jreasoner-wpe/wpe-example-roots-theme/blob/main/.github/workflows/action.yml#L1-L5), and add a [WPE SSH Key](https://wpengine.com/support/github-action-deploy/#Setup_Instructions).
+You can either clone and modify this repo, [update the github action](https://github.com/wpengine/example-sage-theme/blob/main/.github/workflows/action.yml#L1-L5), and add a [WPE SSH Key](https://wpengine.com/support/github-action-deploy/#Setup_Instructions).
 ```yml
 name: Deploy to WP Engine
 env:
@@ -40,7 +40,7 @@ Or [copy these steps to recreate a fresh install on your own](docs/fresh.md).
 
 ## Frequently Asked Questions
 - I thought WP Engine doesn't support Sage/Roots theme?
-  - Sage was never fully supported due to the way Sage out of the box conflicted with our security best practices. In late 2022, we started to make changes to fully support pre-compiling Sage templates to enable official support if they follow the way this repo deploys with [`post-deploy.sh`](https://github.com/jreasoner-wpe/wpe-example-roots-theme/blob/main/post-deploy.sh) script, that ultimately runs `wp acorn view:cache`.
+  - Sage was never fully supported due to the way Sage out of the box conflicted with our security best practices. In late 2022, we started to make changes to fully support pre-compiling Sage templates to enable official support if they follow the way this repo deploys with [`post-deploy.sh`](https://github.com/wpengine/example-sage-theme/blob/main/post-deploy.sh) script, that ultimately runs `wp acorn view:cache`.
 - Sage wasn't supported until late 2022?
   - There have been ways of running Sage on WP Engine prior using customization or other means, but this approach is our offically supported way.
 - What about Timber/Twig themes?
