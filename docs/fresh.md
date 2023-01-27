@@ -26,7 +26,7 @@ composer create-project roots/sage your-roots-theme-name-here
 cd your-roots-theme-name-here && composer require roots/acorn
 ```
 
-6. [Add "post-autoload-dump" script](https://github.com/jreasoner-wpe/wpe-example-roots-theme/commit/9b2120c2601e84295aefe8d8915c93775407727b) that'll run after every composer update command to the `composer.json`
+6. [Add "post-autoload-dump" script](https://github.com/wpengine/example-sage-theme/blob/main/post-deploy.sh) that'll run after every composer update command to the `composer.json`
 
 7. Create the directory structure for the github action
 ```bash
@@ -35,7 +35,7 @@ mkdir -p .github/workflows/ && cd .github/workflows/
 
 8. Add the github action that'll deploy the theme
 ```bash
-wget https://github.com/jreasoner-wpe/wpe-example-roots-theme/blob/main/.github/workflows/action.yml
+wget https://github.com/wpengine/example-sage-theme/blob/main/.github/workflows/action.yml
 ```
 
 9. Update just these sections of the `action.yml` file
@@ -51,7 +51,7 @@ env:
 
 11. Add a [`post-deploy.sh`](../post-deploy.sh) script to run [wp-cli](https://wpengine.com/resources/on-demand-webinar-developers-bada-wp-cli/) commands like, `wp acorn view:cache` to compile the Sage templates once deployed.
 ```bash
-cd ../../ && wget https://github.com/jreasoner-wpe/wpe-example-roots-theme/blob/main/post-deploy.sh
+cd ../../ && wget https://github.com/wpengine/example-sage-theme/blob/main/post-deploy.sh
 ```
 
 12. And your done! With the action setup, it will now auto deploy and run the `post-deploy.sh` script. Just git commit and git push to your repo!
