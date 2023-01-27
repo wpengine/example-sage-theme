@@ -1,4 +1,4 @@
-# WP Engine Example Roots Theme
+# WP Engine Example Sage Theme
 
 <p align="center">
 <img src="https://wpengine.com/wp-content/uploads/2020/08/WPE-LOGO-H-Default@3x.png" height="80px" style="padding-right: 40px;">
