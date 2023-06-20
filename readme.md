@@ -27,7 +27,7 @@ To produce beautiful themes like
 ```
 
 ## To get started
-You can either [clone and modify this repo]() as a stater or [copy these steps to recreate a fresh install on your own](docs/fresh.md).
+You can either [clone and modify this repo](#clone-this-repo) as a stater or [copy these steps to recreate a fresh install on your own](docs/fresh.md).
 
 ## Clone this repo
 
@@ -51,7 +51,7 @@ env:
 
 3. Setup a new ssh private key in GithHub and WP Engine via https://wpengine.com/support/github-action-deploy/#Setup_Instructions
 
-4. Push the repo to your own GitHub and the [main/post-deploy.sh](main/post-deploy.sh) will clear the cache during GitHub deploys 🎉.
+4. Push the repo to your own GitHub and the [post-deploy.sh](post-deploy.sh) will clear the cache during [GitHub deploys](.github/workflows/action.yml#L55-L58) 🎉.
 
 ## Frequently Asked Questions
 - I thought WP Engine doesn't support Sage/Roots theme?

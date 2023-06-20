@@ -1,7 +1,7 @@
 name: Deploy to WP Engine
 env:
   WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
-  WPE_INSTALL_NAME: jreas
+  WPE_INSTALL_NAME: your-wp-install-name
   THEME_NAME: your-roots-theme-name-here
 on:
   push:
