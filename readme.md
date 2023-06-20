@@ -27,7 +27,7 @@ To produce beautiful themes like
 ```
 
 ## To get started
-You can either [clone and modify this repo](#clone-this-repo) as a stater or [copy these steps to recreate a fresh install on your own](docs/fresh.md).
+You can either [clone and modify this repo](#clone-this-repo) as a starter or [copy these steps to recreate a fresh install on your own](docs/fresh.md).
 
 ## Clone this repo
 
