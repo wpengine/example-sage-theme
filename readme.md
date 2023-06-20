@@ -27,16 +27,31 @@ To produce beautiful themes like
 ```
 
 ## To get started
-You can either clone and modify this repo, [update the github action](https://github.com/wpengine/example-sage-theme/blob/main/.github/workflows/action.yml#L1-L5), and add a [WPE SSH Key](https://wpengine.com/support/github-action-deploy/#Setup_Instructions).
-```yml
+You can either [clone and modify this repo]() as a stater or [copy these steps to recreate a fresh install on your own](docs/fresh.md).
+
+## Clone this repo
+
+1. First clone this repo with a sage theme
+```bash
+git clone https://github.com/wpengine/example-sage-theme <wordpress-dir>
+cd <wordpress-dir>
+```
+
+2. Now, update the github action to use your info
+```bash
+vi .github/workflows/action.yml
+
+# Edit this section
 name: Deploy to WP Engine
 env:
-  WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+  WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }} # Don't change this, leave the SSH key a secret
   WPE_INSTALL_NAME: your-wp-install-name
   THEME_NAME: your-roots-theme-name-here
 ```
 
-Or [copy these steps to recreate a fresh install on your own](docs/fresh.md).
+3. Setup a new ssh private key in GithHub and WP Engine via https://wpengine.com/support/github-action-deploy/#Setup_Instructions
+
+4. Push the repo to your own GitHub and the [main/post-deploy.sh](main/post-deploy.sh) will clear the cache during GitHub deploys 🎉.
 
 ## Frequently Asked Questions
 - I thought WP Engine doesn't support Sage/Roots theme?
