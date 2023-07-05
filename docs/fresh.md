@@ -26,7 +26,7 @@ composer create-project roots/sage your-roots-theme-name-here
 cd your-roots-theme-name-here && composer require roots/acorn
 ```
 
-6. [Add "post-autoload-dump" script](https://github.com/wpengine/example-sage-theme/blob/main/post-deploy.sh) that'll run after every composer update command to the `composer.json`
+6. [Add "post-autoload-dump" script](https://github.com/wpengine/example-sage-theme/blob/main/wp-content/themes/your-roots-theme-name-here/composer.json#L63-L65) that'll run after every composer update command to the `composer.json`
 
 7. Create the directory structure for the github action
 ```bash
