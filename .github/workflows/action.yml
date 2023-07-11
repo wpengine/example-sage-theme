@@ -43,7 +43,7 @@ jobs:
 
   php-build:
     runs-on: ubuntu-latest
-    container: gjrdiesel/composer-74:alpine
+    container: gjrdiesel/composer-80:alpine
     steps:
 
     - name: Check out the git repo
