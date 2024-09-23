@@ -51,7 +51,7 @@ jobs:
 
   php-build:
     runs-on: ubuntu-latest
-    container: php:8.1-alpine
+    container: php:8.2-alpine
     steps:
 
       - name: Check out the git repo
