@@ -1,0 +1,80 @@
+name: Deploy to WPEngine - STAGE
+env:
+  WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+  WPE_INSTALL_NAME: ${{ secrets.STG_ENVIRONMENT }}
+  THEME_NAME: ${{ secrets.THEME_NAME }}
+on:
+  push:
+    branches:
+      - stage
+jobs:
+  js-build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Check out the git repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn'
+          cache-dependency-path: wp-content/themes/${{ secrets.THEME_NAME }}/yarn.lock
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Check for yarn.lock file
+        run: |
+          if [ ! -f wp-content/themes/${{ secrets.THEME_NAME }}/yarn.lock ]; then
+            echo "yarn.lock file is missing. Please ensure it exists in the specified directory."
+            exit 1
+          fi
+
+      - name: Install js/css dependencies
+        run: yarn install
+        working-directory: wp-content/themes/${{ secrets.THEME_NAME }}
+
+      - name: Build js/css
+        run: yarn build
+        working-directory: wp-content/themes/${{ secrets.THEME_NAME }}
+
+      - name: Clean up node modules (not needed to deploy)
+        run: rm -rf wp-content/themes/${{ secrets.THEME_NAME }}/node_modules
+
+      - name: Deploy to WPE
+        uses: wpengine/github-action-wpe-site-deploy@v3
+        with:
+          SCRIPT: post-deploy.sh
+          WPE_ENV: ${{ secrets.STG_ENVIRONMENT }}
+
+  php-build:
+    runs-on: ubuntu-latest
+    container: php:8.2-alpine
+    steps:
+
+      - name: Check out the git repo
+        uses: actions/checkout@v4
+
+      - name: Set up Composer cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.composer/cache
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+               ${{ runner.os }}-composer-
+
+      - name: Install Composer
+        run: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+      - name: Install PHP dependencies
+        run: |
+          cd wp-content/themes/${{ secrets.THEME_NAME }}
+          composer install --prefer-dist --no-scripts --no-interaction --optimize-autoloader
+
+      - name: Deploy to wpengine.com
+        uses: wpengine/github-action-wpe-site-deploy@v3
+        with:
+          SCRIPT: post-deploy.sh
+          WPE_ENV: ${{ secrets.STG_ENVIRONMENT }}

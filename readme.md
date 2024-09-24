@@ -37,21 +37,20 @@ git clone https://github.com/wpengine/example-sage-theme <wordpress-dir>
 cd <wordpress-dir>
 ```
 
-2. Now, update the github action to use your info
-```bash
-vi .github/workflows/action.yml
+2. Setup a new ssh private key in GithHub and WP Engine via https://wpengine.com/support/github-action-deploy/#Setup_Instructions
 
-# Edit this section
-name: Deploy to WP Engine
-env:
-  WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }} # Don't change this, leave the SSH key a secret
-  WPE_INSTALL_NAME: your-wp-install-name
-  THEME_NAME: your-roots-theme-name-here
-```
 
-3. Setup a new ssh private key in GithHub and WP Engine via https://wpengine.com/support/github-action-deploy/#Setup_Instructions
+3. Add GitHub Action Secrets
 
-4. Push the repo to your own GitHub and the [post-deploy.sh](post-deploy.sh) will clear the cache during [GitHub deploys](.github/workflows/action.yml#L55-L58) 🎉.
+Add the following secrets to your repo:
+- `WPE_SSHG_KEY_PRIVATE`: Your SSH private key.
+- `THEME_NAME`: The name of your WordPress theme in `wp-content/themes/{theme-name}`.
+- `DEV_ENVIRONMENT`: Your WPEngine site's development environment name (e.g., `sitename-dev`).
+- `STG_ENVIRONMENT`: Your WPEngine site's staging environment name (e.g., `sitename-stg`).
+- `PROD_ENVIRONMENT`: Your WPEngine site's production environment name (e.g., `sitename`).
+
+
+4. Push the repo to your own GitHub and the [post-deploy.sh](post-deploy.sh) will activate the theme if it's not already, and clear the cache during [GitHub deploys](.github/workflows/action.yml#L55-L58) 🎉.
 
 ## Frequently Asked Questions
 - I thought WP Engine doesn't support Sage/Roots theme?

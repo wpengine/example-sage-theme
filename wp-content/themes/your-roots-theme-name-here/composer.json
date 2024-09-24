@@ -39,15 +39,14 @@
     }
   },
   "require": {
-    "php": "^8.0",
-    "roots/acorn": "^3.2"
+    "php": ">=8.1",
+    "roots/acorn": "^4.3"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "3.7.1"
+    "laravel/pint": "^1.13"
   },
   "suggest": {
-    "log1x/sage-directives": "A collection of useful Blade directives for WordPress and Sage (^1.0).",
-    "log1x/sage-svg": "A useful SVG directive for inlining SVG's within Blade views (^1.0)."
+    "log1x/sage-directives": "A collection of useful Blade directives for WordPress and Sage (^1.0)."
   },
   "config": {
     "optimize-autoloader": true,
@@ -56,14 +55,6 @@
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
-  "scripts": {
-    "lint": [
-      "phpcs --extensions=php --standard=PSR12 app"
-    ],
-    "post-autoload-dump": [
-      "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
-    ]
-  },
   "extra": {
     "acorn": {
       "providers": [

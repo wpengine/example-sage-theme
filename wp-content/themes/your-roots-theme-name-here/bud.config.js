@@ -1,17 +1,17 @@
 /**
  * Compiler configuration
  *
- * @see {@link https://roots.io/docs/sage sage documentation}
- * @see {@link https://bud.js.org/guides/configure bud.js configuration guide}
+ * @see {@link https://roots.io/sage/docs sage documentation}
+ * @see {@link https://bud.js.org/learn/config bud.js configuration guide}
  *
- * @param {import('@roots/bud').Bud} app
+ * @type {import('@roots/bud').Config}
  */
 export default async (app) => {
   /**
    * Application assets & entrypoints
    *
-   * @see {@link https://bud.js.org/docs/bud.entry}
-   * @see {@link https://bud.js.org/docs/bud.assets}
+   * @see {@link https://bud.js.org/reference/bud.entry}
+   * @see {@link https://bud.js.org/reference/bud.assets}
    */
   app
     .entry('app', ['@scripts/app', '@styles/app'])
@@ -21,16 +21,16 @@ export default async (app) => {
   /**
    * Set public path
    *
-   * @see {@link https://bud.js.org/docs/bud.setPublicPath}
+   * @see {@link https://bud.js.org/reference/bud.setPublicPath}
    */
   app.setPublicPath('/app/themes/sage/public/');
 
   /**
    * Development server settings
    *
-   * @see {@link https://bud.js.org/docs/bud.setUrl}
-   * @see {@link https://bud.js.org/docs/bud.setProxyUrl}
-   * @see {@link https://bud.js.org/docs/bud.watch}
+   * @see {@link https://bud.js.org/reference/bud.setUrl}
+   * @see {@link https://bud.js.org/reference/bud.setProxyUrl}
+   * @see {@link https://bud.js.org/reference/bud.watch}
    */
   app
     .setUrl('http://localhost:3000')
@@ -46,21 +46,35 @@ export default async (app) => {
    * @see {@link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json}
    */
   app.wpjson
-    .set('settings.color.custom', false)
-    .set('settings.color.customDuotone', false)
-    .set('settings.color.customGradient', false)
-    .set('settings.color.defaultDuotone', false)
-    .set('settings.color.defaultGradients', false)
-    .set('settings.color.defaultPalette', false)
-    .set('settings.color.duotone', [])
-    .set('settings.custom.spacing', {})
-    .set('settings.custom.typography.font-size', {})
-    .set('settings.custom.typography.line-height', {})
-    .set('settings.spacing.padding', true)
-    .set('settings.spacing.units', ['px', '%', 'em', 'rem', 'vw', 'vh'])
-    .set('settings.typography.customFontSize', false)
+    .setSettings({
+      background: {
+        backgroundImage: true,
+      },
+      color: {
+        custom: false,
+        customDuotone: false,
+        customGradient: false,
+        defaultDuotone: false,
+        defaultGradients: false,
+        defaultPalette: false,
+        duotone: [],
+      },
+      custom: {
+        spacing: {},
+        typography: {
+          'font-size': {},
+          'line-height': {},
+        },
+      },
+      spacing: {
+        padding: true,
+        units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
+      },
+      typography: {
+        customFontSize: false,
+      },
+    })
     .useTailwindColors()
     .useTailwindFontFamily()
-    .useTailwindFontSize()
-    .enable();
+    .useTailwindFontSize();
 };
