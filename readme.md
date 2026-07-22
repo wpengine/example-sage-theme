@@ -1,8 +1,8 @@
 # WP Engine Example Sage Theme
 
 <p align="center">
-<img src="https://wpengine.com/wp-content/uploads/2020/08/WPE-LOGO-H-Default@3x.png" height="80px" style="padding-right: 40px;">
-<img src="https://camo.githubusercontent.com/5f0b97ec47b3b185d642826e44b3750209c464c90e610372f55e5356e639c6c0/68747470733a2f2f63646e2e726f6f74732e696f2f6170702f75706c6f6164732f6c6f676f2d736167652e737667">
+<img src="https://wpmktgatlas.wpengine.com/wp-content/uploads/2025/10/WPEngine_Logo_R.svg" height="80px" style="padding-right: 40px;">
+<img src="https://cdn.roots.io/app/uploads/logo-sage.svg" height="80px">
 </p>
 
 An example of how write beautiful and modern templates, with modern CI/CD practices using github actions and the Roots/Sage theme using [wpengine.com](https://wpengine.com)

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://wpengine.com/wp-content/uploads/2020/08/WPE-LOGO-H-Default@3x.png" height="40px">
+  <img src="https://wpmktgatlas.wpengine.com/wp-content/uploads/2025/10/WPEngine_Logo_R.svg" height="40px">
 </p>
 
 # Steps to recreate your own theme on your own github repo
@@ -26,19 +26,17 @@ composer create-project roots/sage your-roots-theme-name-here
 cd your-roots-theme-name-here && composer require roots/acorn
 ```
 
-6. [Add "post-autoload-dump" script](https://github.com/wpengine/example-sage-theme/blob/main/wp-content/themes/your-roots-theme-name-here/composer.json#L63-L65) that'll run after every composer update command to the `composer.json`
-
-7. Create the directory structure for the github action
+6. Create the directory structure for the github action
 ```bash
 mkdir -p .github/workflows/ && cd .github/workflows/
 ```
 
-8. Add the github action that'll deploy the theme
+7. Add the github action that'll deploy the theme
 ```bash
-wget https://github.com/wpengine/example-sage-theme/blob/main/.github/workflows/action.yml
+wget https://raw.githubusercontent.com/wpengine/example-sage-theme/main/.github/workflows/action.yml
 ```
 
-9. Update just these sections of the `action.yml` file
+8. Update just these sections of the `action.yml` file
 ```yml
 name: Deploy to WP Engine
 env:
@@ -47,18 +45,18 @@ env:
   THEME_NAME: your-roots-theme-name-here
 ```
 
-10. [Create and add an ssh-gateway private key](https://wpengine.com/support/ssh-gateway/#Create_SSH_Key) to [your repo's github secrets](https://wpengine.com/support/github-action-deploy/#Setup_Instructions) and the [my.wpengine.com](https://my.wpengine.com) portal.
+9. [Create and add an ssh-gateway private key](https://wpengine.com/support/ssh-gateway/#Create_SSH_Key) to [your repo's github secrets](https://wpengine.com/support/github-action-deploy/#Setup_Instructions) and the [my.wpengine.com](https://my.wpengine.com) portal.
 
-11. Add a [`post-deploy.sh`](../post-deploy.sh) script to run [wp-cli](https://wpengine.com/resources/on-demand-webinar-developers-bada-wp-cli/) commands like, `wp acorn view:cache` to compile the Sage templates once deployed.
+10. Add a [`post-deploy.sh`](../post-deploy.sh) script to run [wp-cli](https://wpengine.com/resources/on-demand-webinar-developers-bada-wp-cli/) commands like, `wp acorn view:cache` to compile the Sage templates once deployed.
 ```bash
-cd ../../ && wget https://github.com/wpengine/example-sage-theme/blob/main/post-deploy.sh
+cd ../../ && wget https://raw.githubusercontent.com/wpengine/example-sage-theme/main/post-deploy.sh
 ```
 
-12. And your done! With the action setup, it will now auto deploy and run the `post-deploy.sh` script. Just git commit and git push to your repo!
+11. And your done! With the action setup, it will now auto deploy and run the `post-deploy.sh` script. Just git commit and git push to your repo!
 
 <div align="center">
   <br/><br/><br/><br/><br/>
-  <img src="https://wpengine.com/wp-content/uploads/2020/08/WPE-LOGO-H-Default@3x.png"> 
+  <img src="https://wpmktgatlas.wpengine.com/wp-content/uploads/2025/10/WPEngine_Logo_R.svg"> 
   <br/><br/><br/><br/><br/>
   <h2>Still need help or have questions? Contact support!</h2>
   <a href="https://my.wpengine.com">Log in to your account</a> to get expert one-on-one help, 24 hours a day, 7 days a week, 365 days a year.
