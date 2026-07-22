@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://wpengine.com/wp-content/uploads/2020/08/WPE-LOGO-H-Default@3x.png" height="40px">
+  <img src="https://wpmktgatlas.wpengine.com/wp-content/uploads/2025/10/WPEngine_Logo_R.svg" height="40px">
 </p>
 
 # Steps to recreate your own theme on your own github repo
@@ -56,7 +56,7 @@ cd ../../ && wget https://raw.githubusercontent.com/wpengine/example-sage-theme/
 
 <div align="center">
   <br/><br/><br/><br/><br/>
-  <img src="https://wpengine.com/wp-content/uploads/2020/08/WPE-LOGO-H-Default@3x.png"> 
+  <img src="https://wpmktgatlas.wpengine.com/wp-content/uploads/2025/10/WPEngine_Logo_R.svg"> 
   <br/><br/><br/><br/><br/>
   <h2>Still need help or have questions? Contact support!</h2>
   <a href="https://my.wpengine.com">Log in to your account</a> to get expert one-on-one help, 24 hours a day, 7 days a week, 365 days a year.
