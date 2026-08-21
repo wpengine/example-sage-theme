@@ -5,7 +5,7 @@
 <img src="https://cdn.roots.io/app/uploads/logo-sage.svg" height="80px">
 </p>
 
-An example of how write beautiful and modern templates, with modern CI/CD practices using github actions and the Roots/Sage theme using [wpengine.com](https://wpengine.com)
+An example of how to write beautiful and modern templates, with modern CI/CD practices using GitHub actions and the Roots/Sage theme using [wpengine.com](https://wpengine.com)
 
 To produce beautiful themes like
 ```blade
